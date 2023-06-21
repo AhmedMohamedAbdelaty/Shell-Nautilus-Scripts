@@ -43,19 +43,14 @@ Note : Some scripts are not mine
 | [New-Text-Document.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Files/New-Text-Document.sh) |                    Create a new text file                    |
 | [Open-With-Gedit-As-Root.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Files/Open-With-Gedit-As-Root.sh) |         Open file using gedit (text editor) as root          |
 | [all folder word-excel-to pdf.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Files/all folder word-excel-to pdf.sh) | Convert all the PowerPoint, Word, and Excel documents to PDF |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
-|                                                              |                                                              |
+| [speed up video or audio.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/speed up video or audio.sh) |                 Speed up video or audio file                 |
+| [merge-audio-folder.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/merge-audio-folder.sh) |    Merge all the audio files in the folder into one file     |
+| [video to gif.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/gif/video to gif.sh) |              Convert Video to gif using ffmpeg               |
+| [cut_segment.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Cut Audio - Video/cut_segment.sh) |          Cut the Video into parts of same duration           |
+| [Convert to 'mp4' (default, video 'avc', audio 'ogg').sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Convert to 'mp4' (default%2C video 'avc'%2C audio 'ogg').sh) |                        Convert to mp4                        |
+| [Convert to 'mp3' (VBR, 320 kpbs).sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Convert to 'mp3' (VBR%2C 320 kpbs).sh) |                     Convert Video to mp3                     |
+| [cut-duration.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Cut Audio - Video/cut-duration.sh) | Cut audio or video from selected start second with a selected duration time |
+| [cut st end.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Cut Audio - Video/cut st end.sh) | Cut audio or video from selected start second to selected end time |
+| [Audio to Video Select Image.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio to Video/Audio to Video Select Image.sh) | Convert Audio file to Video (mp4) with selected image file (Recommended) |
+| [Audio to Video.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio to Video/Audio to Video.sh) | Convert Audio files to Video using the image thumbnail of the audio file |
 
