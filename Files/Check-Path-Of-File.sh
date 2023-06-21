@@ -4,14 +4,12 @@
 # then it will display result through the dialog window.
 #
 # Nov 19, 2010
-#Copyright by Nguyen Duc Long <Email: longnd.s8@gmail.com>
-####################################################################################
+# Copyright by Nguyen Duc Long
 
 if [ -e -n $1 ]; then
-	x="$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS"
+	x="$1"
 else
-	base="`echo $NAUTILUS_SCRIPT_CURRENT_URI | cut -d'/' -f3- | sed 's/%20/ /g'`"
-	x="$base/${1##*/}"
+	x="$PWD/${1##*/}"
 fi
 
 if [ -f "$x" ]; then
@@ -26,9 +24,7 @@ else
 fi
 
 zenity --title "Result of checking object" --info --text "$Result
-\nnewline-delimited paths for selected files (only if local): $NAUTILUS_SCRIPT_SELECTED_FILE_PATHS
-\nnewline-delimited URIs for selected files: $NAUTILUS_SCRIPT_SELECTED_URIS
-\nURI for current location: $NAUTILUS_SCRIPT_CURRENT_URI
+\npaths for selected files (only if local): $PWD
 \nVariable: $1
 "
 
