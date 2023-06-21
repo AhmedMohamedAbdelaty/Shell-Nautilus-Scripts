@@ -3,7 +3,7 @@
 # convert folder of images to pdf or files 
 
 IFS=$'\n'
-selected_files=($NAUTILUS_SCRIPT_SELECTED_FILE_PATHS)
+selected_files=("$@")
 unset IFS
 
 if [ -z "$selected_files" ]; then
