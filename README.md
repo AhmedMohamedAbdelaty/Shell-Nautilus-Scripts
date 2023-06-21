@@ -52,3 +52,18 @@ Note : Some scripts are not mine
 | [cut st end.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Cut%20Audio%20-%20Video/cut%20st%20end.sh) | Cut audio or video from selected start second to selected end time |
 | [Audio to Video Select Image.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio%20to%20Video/Audio%20to%20Video%20Select%20Image.sh) | Convert Audio file to Video (mp4) with selected image file (Recommended) |
 | [Audio to Video.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio%20to%20Video/Audio%20to%20Video.sh) | Convert Audio files to Video using the image thumbnail of the audio file |
+
+-------
+## Want to contribute? Great!
+
+<div align="center">
+    <img src="https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/assets/73834838/a75b5e6e-7f3e-4439-9e89-4abd9ff1881b" alt="gon-freecss-wondering">
+</div>
+
+- Fork the repo
+- Create a new branch
+- Commit your changes
+- Push to the branch
+- Create a new Pull Request
+
+-------
