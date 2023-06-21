@@ -1,13 +1,8 @@
 #!/bin/bash
 # Nautilus script to convert PDF files to PDF/A format using Ghostscript
 
-# Get the selected file or folder
-IFS=$'\n'
-files=($NAUTILUS_SCRIPT_SELECTED_FILE_PATHS)
-unset IFS
-
 # Check if any files are selected
-if [[ ${#files[@]} -eq 0 ]]; then
+if [[ -z "$1" ]]; then
     zenity --error --text="No files selected."
     exit 1
 fi
@@ -16,7 +11,7 @@ fi
 delete_files=$(zenity --question --text="Do you want to delete the original PDF files?" --title="PDF to PDF/A Converter")
 
 # Loop through each selected file or folder and convert PDF files to PDFA format
-for file in "${files[@]}"
+for file in "$@"
 do
     if [[ -d "$file" ]]; then
         # Convert all PDF files in the selected folder to PDFA format
@@ -52,4 +47,3 @@ done
 
 # Show a message indicating the conversion is complete
 zenity --info --text="PDF to PDF/A conversion complete." --title="PDF to PDF/A Converter"
-
