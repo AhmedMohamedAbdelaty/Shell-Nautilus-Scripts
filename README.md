@@ -46,12 +46,12 @@ Note : Some scripts are not mine
 | [merge-audio-folder.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/merge-audio-folder.sh) | Merge all the audio files in the folder into one file |
 | [video-to-gif.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/gif/video-to-gif.sh) | Convert Video to gif using ffmpeg |
 | [cut_segment.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Cut%20Audio%20-%20Video/cut_segment.sh) | Cut the Video into parts of same duration |
-| [Convert to mp4](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Convert-to-'mp4'-(default%2C-video-'avc'%2C-audio-'ogg').sh) | Convert to mp4 |
-| [Convert to 'mp3' (VBR, 320 kpbs).sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Convert%20to%20'mp3'%20(VBR%2C%20320%20kpbs).sh) | Convert Video to mp3 |
+| [Convert-to-mp4-1.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Convert-to-mp4-1.sh) | Convert to mp4 |
+| [Convert-to-mp3.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Convert-to-mp3.sh) | Convert Video to mp3 |
 | [cut-duration.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Cut%20Audio%20-%20Video/cut-duration.sh) | Cut audio or video from selected start second with a selected duration time |
-| [cut st end.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Cut%20Audio%20-%20Video/cut%20st%20end.sh) | Cut audio or video from selected start second to selected end time |
-| [Audio to Video Select Image.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio%20to%20Video/Audio%20to%20Video%20Select%20Image.sh) | Convert Audio file to Video (mp4) with selected image file (Recommended) |
-| [Audio to Video.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio%20to%20Video/Audio%20to%20Video.sh) | Convert Audio files to Video using the image thumbnail of the audio file |
+| [cut-st-end.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Cut Audio - Video/cut-st-end.sh) | Cut audio or video from selected start second to selected end time |
+| [Audio-to-Video-Select-Image.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio to Video/Audio-to-Video-Select-Image.sh) | Convert Audio file to Video (mp4) with selected image file (Recommended) |
+| [Audio-to-Video.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio to Video/Audio-to-Video.sh) | Convert Audio files to Video using the image thumbnail of the audio file |
 | [line-randomizer.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Files/line-randomizer.sh) | Randomize the lines of a txt file |
 
 -------
