@@ -49,9 +49,9 @@ Note : Some scripts are not mine
 | [Convert-to-mp4-1.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Convert-to-mp4-1.sh) | Convert to mp4 |
 | [Convert-to-mp3.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Convert-to-mp3.sh) | Convert Video to mp3 |
 | [cut-duration.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Cut%20Audio%20-%20Video/cut-duration.sh) | Cut audio or video from selected start second with a selected duration time |
-| [cut-st-end.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Cut Audio - Video/cut-st-end.sh) | Cut audio or video from selected start second to selected end time |
-| [Audio-to-Video-Select-Image.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio to Video/Audio-to-Video-Select-Image.sh) | Convert Audio file to Video (mp4) with selected image file (Recommended) |
-| [Audio-to-Video.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio to Video/Audio-to-Video.sh) | Convert Audio files to Video using the image thumbnail of the audio file |
+| [cut-st-end.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Cut-Audio-Video/cut-st-end.sh) | Cut audio or video from selected start second to selected end time |
+| [Audio-to-Video-Select-Image.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio-to-Video/Audio-to-Video-Select-Image.sh) | Convert Audio file to Video (mp4) with selected image file (Recommended) |
+| [Audio-to-Video.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio-to-Video/Audio-to-Video.sh) | Convert Audio files to Video using the image thumbnail of the audio file |
 | [line-randomizer.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Files/line-randomizer.sh) | Randomize the lines of a txt file |
 | [remove-filename-spaces.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Files/remove-filename-spaces.sh) | Remove spaces from file names |
 
