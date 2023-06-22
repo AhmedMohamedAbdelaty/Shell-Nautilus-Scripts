@@ -53,6 +53,7 @@ Note : Some scripts are not mine
 | [Audio-to-Video-Select-Image.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio to Video/Audio-to-Video-Select-Image.sh) | Convert Audio file to Video (mp4) with selected image file (Recommended) |
 | [Audio-to-Video.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Audio-Video-Images/Audio to Video/Audio-to-Video.sh) | Convert Audio files to Video using the image thumbnail of the audio file |
 | [line-randomizer.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Files/line-randomizer.sh) | Randomize the lines of a txt file |
+| [remove-filename-spaces.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Files/remove-filename-spaces.sh) | Remove spaces from file names |
 
 -------
 ## Want to contribute? Great!
