@@ -1,5 +1,4 @@
 #!/bin/bash
-# Nautilus script to split a video or audio file using FFmpeg
 
 # Set default segment length
 SEGMENT_LENGTH=60
