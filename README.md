@@ -22,7 +22,12 @@ git clone https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts ~/.loca
 
 ------
 
-Note : Some scripts are not mine
+Note: Some scripts are not mine
+Note: if some PDF scripts not working, it might be because ImageMagick security policy 'PDF' blocking conversion from PDF to images, to fix it, run this command:
+
+```bash
+sudo sed -i '/disable ghostscript format types/,+6d' /etc/ImageMagick-6/policy.xml
+```
 
 ---------
 
@@ -56,7 +61,8 @@ Note : Some scripts are not mine
 | [remove-filename-spaces.sh](https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/blob/main/Files/remove-filename-spaces.sh) | Remove spaces from file names |
 
 -------
-## Want to contribute? Great!
+
+## Want to contribute? Great
 
 <div align="center">
     <img src="https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/assets/73834838/a75b5e6e-7f3e-4439-9e89-4abd9ff1881b" alt="gon-freecss-wondering">
