@@ -19,7 +19,11 @@ fi
 # get the directory of the first selected file
 output_dir=$(dirname "${selected_files[0]}")
 
-# convert images to pdf
-convert "${selected_files[@]}" "${output_dir}/converted_combined.pdf"
+# create log file
+log_file="${output_dir}/conversion.log"
+touch "$log_file"
 
-zenity --info --text="conversion complete." --title="Converter"
+# convert images to pdf and output log to file
+convert "${selected_files[@]}" "${output_dir}/converted_combined.pdf" 2>&1 | tee -a "$log_file"
+
+zenity --info --text="Conversion complete. Log file saved at $log_file" --title="Converter"
