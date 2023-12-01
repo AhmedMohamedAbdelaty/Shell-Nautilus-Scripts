@@ -1,26 +1,39 @@
-#!/usr/bin/env bash
+#!/bin/bash
+# Nautilus script to convert video to audio using FFmpeg
 
-SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)
-# shellcheck source=/dev/null
-source "${SCRIPT_DIR/%scripts\/*/scripts}/_common_functions"
+input_video="$1"
 
-# Initial checks
-_check_dependencies ffmpeg || exit 1
-INPUT_FILES=$(_get_files "$*" "f" "1" "" "audio;video") || exit 1
-OUTPUT_DIR=$(_get_output_dir) || exit 1
+# Log file path in the same directory as input video file
+log_file=$(dirname "$input_video")/$(basename "$input_video" | cut -f 1 -d '.').log
 
-_main_task() {
-    local FILE=$1
-    local OUTPUT_DIR=$2
-    local OUTPUT_FILE
-    local STD_OUTPUT
-    local EXIT_CODE
+# Check if FFmpeg is installed
+if ! command -v ffmpeg &> /dev/null
+then
+    zenity --error --text="FFmpeg is not installed. Please install FFmpeg and try again."
+    echo "$(date) - FFmpeg is not installed" >> "$log_file"
+    exit
+fi
 
-    OUTPUT_FILE="$OUTPUT_DIR/$(_get_filename_without_extension "$FILE").mp3"
-    STD_OUTPUT=$(ffmpeg -threads 4 -y -i "$FILE" -vn -c:a libmp3lame -b:a 320k -ar 44100 -ac 2 "$OUTPUT_FILE" 2>&1)
-    EXIT_CODE=$?
-    _log_error_result "$FILE" "$STD_OUTPUT" "$OUTPUT_DIR" "$EXIT_CODE" "$OUTPUT_FILE"
-}
 
-_run_parallel_tasks "$INPUT_FILES"
-_display_result_tasks "$OUTPUT_DIR"
+
+# Check if input video file exists
+if [ ! -f "$input_video" ]
+then
+    zenity --error --text="Input video file '$input_video' does not exist. Please enter a valid file path and try again."
+    echo "$(date) - Input video file '$input_video' does not exist" >> "$log_file"
+    exit
+fi
+
+# Get output audio file path in the same directory as input video file
+output_audio=$(dirname "$input_video")/$(basename "$input_video" | cut -f 1 -d '.').mp3
+
+# Extract thumbnail from input video file
+thumbnail=$(ffmpeg -i "$input_video" -filter:v "scale=w='if(gt(iw,ih),640,-2)':'if(gt(iw,ih),-2,640)',setsar=1" -vframes 1 -q:v 2 "$output_audio.jpg" 2>&1 | grep -oP "(?<=thumbnail:).*(?=')")
+# Convert video file to audio
+ffmpeg -i "$input_video" -vn -acodec libmp3lame -ac 2 -ab 160k -ar 48000 "$output_audio"
+
+# Remove thumbnail image file
+rm "$output_audio.jpg"
+
+zenity --info --text="Audio conversion for '${input_video}' completed successfully!"
+echo "$(date) - Audio conversion for '${input_video}' completed successfully" >> "$log_file"
