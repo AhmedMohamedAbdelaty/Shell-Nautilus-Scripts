@@ -22,7 +22,8 @@ git clone https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts ~/.loca
 
 ---
 
-Note: Some scripts are not mine.
+> [!NOTE]
+> Some scripts are not mine.
 
 Note: if some PDF scripts not working, it might be because ImageMagick security policy 'PDF' blocking conversion from PDF to images, to fix it, run this command:
 
