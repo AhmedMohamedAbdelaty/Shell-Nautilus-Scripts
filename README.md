@@ -2,7 +2,7 @@
 
 A collection of shell and Nautilus scripts to enhance productivity on Linux. Includes utilities for manipulating PDFs and images, file management automation, and more. Integrates with Nautilus and Nemo file managers for easy access to scripts. Useful for streamlining workflows and adding functionality without installing new software. Beginner-friendly Bash scripts that work across common Linux distros like Ubuntu, Fedora, etc. Open source and customizable.
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FAhmedMohamedAbdelaty%2FShell-Nautilus-Scripts&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=Views&edge_flat=false)](https://hits.seeyoufarm.com)
+[![Hits](https://hits.sh/github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts.svg?style=for-the-badge&label=Views)](https://hits.sh/github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/)
 
 <div align="center">
     <img src="https://github.com/AhmedMohamedAbdelaty/Shell-Nautilus-Scripts/assets/73834838/7ce3e469-cb6b-4bb6-acad-5cfa9ccc4753" alt="a0d581666d26dd9c66bf8ed395cba948">
