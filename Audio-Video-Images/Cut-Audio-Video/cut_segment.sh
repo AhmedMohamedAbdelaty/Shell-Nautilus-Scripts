@@ -1,5 +1,8 @@
 #!/bin/bash
-
+# Install zenity package if not already installed
+if ! command -v zenity &>/dev/null; then
+	sudo apt-get install -y zenity
+fi
 # Set default segment length
 SEGMENT_LENGTH=60
 
@@ -7,8 +10,7 @@ SEGMENT_LENGTH=60
 selected_file="$1"
 
 # Check if selected file exists
-if [ ! -f "$selected_file" ]
-then
+if [ ! -f "$selected_file" ]; then
 	zenity --error --text="File '$selected_file' does not exist'"
 	exit 1
 fi
@@ -17,8 +19,7 @@ fi
 SEGMENT_LENGTH=$(zenity --entry --title="Split a video or audio file" --text="Enter the desired segment length in seconds (default is 60):")
 
 # Use default segment length of 60 seconds if user did not enter a value
-if [ -z "$SEGMENT_LENGTH" ]
-then
+if [ -z "$SEGMENT_LENGTH" ]; then
 	SEGMENT_LENGTH=60
 fi
 

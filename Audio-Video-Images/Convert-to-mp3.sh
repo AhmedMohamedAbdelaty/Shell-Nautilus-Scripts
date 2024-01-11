@@ -1,26 +1,25 @@
 #!/bin/bash
 # Nautilus script to convert video to audio using FFmpeg
-
+# Install zenity package if not already installed
+if ! command -v zenity &>/dev/null; then
+    sudo apt-get install -y zenity
+fi
 input_video="$1"
 
 # Log file path in the same directory as input video file
 log_file=$(dirname "$input_video")/$(basename "$input_video" | cut -f 1 -d '.').log
 
 # Check if FFmpeg is installed
-if ! command -v ffmpeg &> /dev/null
-then
+if ! command -v ffmpeg &>/dev/null; then
     zenity --error --text="FFmpeg is not installed. Please install FFmpeg and try again."
-    echo "$(date) - FFmpeg is not installed" >> "$log_file"
+    echo "$(date) - FFmpeg is not installed" >>"$log_file"
     exit
 fi
 
-
-
 # Check if input video file exists
-if [ ! -f "$input_video" ]
-then
+if [ ! -f "$input_video" ]; then
     zenity --error --text="Input video file '$input_video' does not exist. Please enter a valid file path and try again."
-    echo "$(date) - Input video file '$input_video' does not exist" >> "$log_file"
+    echo "$(date) - Input video file '$input_video' does not exist" >>"$log_file"
     exit
 fi
 
@@ -36,4 +35,4 @@ ffmpeg -i "$input_video" -vn -acodec libmp3lame -ac 2 -ab 160k -ar 48000 "$outpu
 rm "$output_audio.jpg"
 
 zenity --info --text="Audio conversion for '${input_video}' completed successfully!"
-echo "$(date) - Audio conversion for '${input_video}' completed successfully" >> "$log_file"
+echo "$(date) - Audio conversion for '${input_video}' completed successfully" >>"$log_file"

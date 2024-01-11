@@ -1,9 +1,11 @@
 #!/bin/bash
 # Nautilus script to convert audio to video using FFmpeg
-
+# Install zenity package if not already installed
+if ! command -v zenity &>/dev/null; then
+    sudo apt-get install -y zenity
+fi
 # Check if FFmpeg is installed
-if ! command -v ffmpeg &> /dev/null
-then
+if ! command -v ffmpeg &>/dev/null; then
     zenity --error --text="FFmpeg is not installed. Please install FFmpeg and try again."
     exit
 fi
@@ -12,8 +14,7 @@ fi
 image_file=$(zenity --file-selection --title="Select an Image File")
 
 # Check if image file was selected
-if [[ -z "$image_file" ]]
-then
+if [[ -z "$image_file" ]]; then
     zenity --error --text="No image file selected. Please try again."
     exit
 fi
@@ -24,13 +25,11 @@ selected_files=($NAUTILUS_SCRIPT_SELECTED_FILE_PATHS)
 
 for selected_file in "${selected_files[@]}"; do
     # Check if selected_file is a directory
-    if [[ -d "$selected_file" ]]
-    then
+    if [[ -d "$selected_file" ]]; then
         # Get list of audio files in directory
         audio_files=$(find "$selected_file" -maxdepth 1 -type f -iname "*.mp3" -o -iname "*.wav" -o -iname "*.ogg")
 
-        if [[ -z "$audio_files" ]]
-        then
+        if [[ -z "$audio_files" ]]; then
             zenity --info --text="No audio files found in '${selected_file}'."
             exit
         fi
@@ -54,8 +53,7 @@ for selected_file in "${selected_files[@]}"; do
         # Check if selected_file is an audio file
         if [[ "$selected_file" == *.mp3 || "$selected_file" == *.wav || "$selected_file" == *.ogg ]]; then
             # Check if input audio file exists
-            if [ ! -f "$selected_file" ]
-            then
+            if [ ! -f "$selected_file" ]; then
                 zenity --error --text="Input audio file '${selected_file}' does not exist. Please enter a valid file path and try again."
                 exit
             fi

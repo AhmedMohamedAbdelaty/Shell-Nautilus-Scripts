@@ -1,6 +1,9 @@
 #!/bin/bash
 # Nautilus script to speed up video or audio file using FFmpeg
-
+# Install zenity package if not already installed
+if ! command -v zenity &>/dev/null; then
+	sudo apt-get install -y zenity
+fi
 # Get selected files
 IFS=$'\n'
 selected_files=($NAUTILUS_SCRIPT_SELECTED_FILE_PATHS)
@@ -17,7 +20,7 @@ for selected_file in "${selected_files[@]}"; do
 
 	# Use default speed factor of 2 if user did not enter a value
 	if [ -z "$SPEED_FACTOR" ]; then
-	  SPEED_FACTOR=2
+		SPEED_FACTOR=2
 	fi
 
 	# Create an output file name based on the input file name

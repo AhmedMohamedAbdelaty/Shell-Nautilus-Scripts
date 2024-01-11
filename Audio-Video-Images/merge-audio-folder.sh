@@ -10,6 +10,6 @@ fi
 folder_name=$(basename "$1")
 
 # combine all audio files to one file in sorted order
-ffmpeg -i "concat:$(find "$1" -name '*.mp3' | sort | tr '\n' '|')" -acodec copy "$folder_name.mp3" > output.log 2>&1
+ffmpeg -i "concat:$(find "$1" -name '*.mp3' | sort | tr '\n' '|')" -acodec copy "$folder_name.mp3" >output.log 2>&1
 
 notify-send "Audio files merged successfully"

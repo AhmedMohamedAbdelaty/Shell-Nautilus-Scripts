@@ -1,5 +1,8 @@
 #!/bin/bash
-
+# Install zenity package if not already installed
+if ! command -v zenity &>/dev/null; then
+    sudo apt-get install -y zenity
+fi
 # Ask user for input file path
 input_file="$1"
 
@@ -29,4 +32,3 @@ output_file="$input_dir/$input_filename_without_ext-$start_time-$end_time.$outpu
 
 # Use ffmpeg to cut the segment from the input file and save it to the output file
 ffmpeg -ss "$start_time" -i "$input_file" -to "$end_time" -c copy "$output_file"
-

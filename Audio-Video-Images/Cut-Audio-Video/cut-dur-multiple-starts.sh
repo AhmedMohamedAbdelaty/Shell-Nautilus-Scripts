@@ -1,5 +1,8 @@
 #!/bin/bash
-
+# Install zenity package if not already installed
+if ! command -v zenity &>/dev/null; then
+    sudo apt-get install -y zenity
+fi
 # Ask user for input file path
 input_file="$1"
 
@@ -15,7 +18,7 @@ fi
 start_times_str="$(zenity --entry --text='Enter the start times in seconds, separated by commas:')"
 
 # Convert the comma-separated string of start times into an array
-IFS=',' read -ra start_times <<< "$start_times_str"
+IFS=',' read -ra start_times <<<"$start_times_str"
 
 # Ask user for end time in seconds (e.g. 30 for 30 seconds)
 end_time="$(zenity --entry --text='Enter the number of seconds from start:')"
@@ -35,4 +38,3 @@ for start_time in "${start_times[@]}"; do
     # Use ffmpeg to cut the segment from the input file and save it to the output file
     ffmpeg -ss "$start_time" -i "$input_file" -t "$end_time" -c copy "$output_file"
 done
-
