@@ -23,7 +23,8 @@ output="${filename%.*}-cut.$extension"
 zenity --info --text="Processing..." --title="Cutting Audio/Video" --width=300 &
 
 # Cut audio or video for specified range
-ffmpeg -i "$filename" -ss "$start_time" -to "$end_time" -c:v libx264 -c:a copy "$output" >>"$log_file" 2>&1
+# ffmpeg -i "$filename" -ss "$start_time" -to "$end_time" -c:v libx264 -c:a copy "$output" >>"$log_file" 2>&1
+ffmpeg -i "$filename" -ss "$start_time" -to "$end_time" -c:a copy "$output" >>"$log_file" 2>&1
 
 # Check if the process was successful
 if [ $? -eq 0 ]; then
