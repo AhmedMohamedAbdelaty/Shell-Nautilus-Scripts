@@ -10,6 +10,11 @@ if ! command -v ffmpeg &>/dev/null; then
     exit
 fi
 
+# Create a log file to store the progress in the same dir of selected file
+log_file=$(dirname "$1")/audio_to_video_conversion.log
+# Redirect all output to the log file
+exec > >(tee -a "$log_file") 2>&1
+
 # Check if selected file is a directory
 if [[ -d "$1" ]]; then
     # Get list of audio files in directory
@@ -22,7 +27,7 @@ if [[ -d "$1" ]]; then
 
     for input_audio in $audio_files; do
         # Get output video file path in the same directory as input audio file
-        output_video=$(dirname "$input_audio")/$(basename "$input_audio" | cut -f 1 -d '.').mp4
+        output_video=$(dirname "$input_audio")/$(basename "$input_audio" | cut -f 1 -d '.')_$(date +%Y%m%d%H%M%S).mp4
 
         # Extract thumbnail from input audio file
         thumbnail=$(ffmpeg -i "$input_audio" -filter:v "scale=w='if(gt(iw,ih),640,-2)':'if(gt(iw,ih),-2,640)',setsar=1" -vframes 1 -q:v 2 "$output_video.jpg" 2>&1 | grep -oP "(?<=thumbnail:).*(?=')")
@@ -33,7 +38,6 @@ if [[ -d "$1" ]]; then
         # Remove thumbnail image file
         rm "$output_video.jpg"
 
-        #zenity --info --text="Video conversion for '${input_audio}' completed successfully!"
     done
     zenity --info --text="Video conversion completed successfully!"
 
@@ -47,7 +51,7 @@ else
         fi
 
         # Get output video file path in the same directory as input audio file
-        output_video=$(dirname "$1")/$(basename "$1" | cut -f 1 -d '.').mp4
+        output_video=$(dirname "$1")/$(basename "$1" | cut -f 1 -d '.')_$(date +%Y%m%d%H%M%S).mp4
 
         # Extract thumbnail from input audio file
         thumbnail=$(ffmpeg -i "$1" -filter:v "scale=w='if(gt(iw,ih),640,-2)':'if(gt(iw,ih),-2,640)',setsar=1" -vframes 1 -q:v 2 "$output_video.jpg" 2>&1 | grep -oP "(?<=thumbnail:).*(?=')")
@@ -57,7 +61,6 @@ else
 
         # Remove thumbnail image file
         rm "$output_video.jpg"
-
         zenity --info --text="Video conversion for '$1' completed successfully!"
     else
         # Selected file is not an audio file
