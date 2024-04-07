@@ -36,7 +36,7 @@ for selected_file in "${selected_files[@]}"; do
 
         for input_audio in $audio_files; do
             # Get output video file path in the same directory as input audio file
-            output_video=$(dirname "$input_audio")/$(basename "$input_audio" | cut -f 1 -d '.').mp4
+            output_video=$(dirname "$input_audio")/$(basename "$input_audio" | cut -f 1 -d '_').$(date +%Y%m%d%H%M%S).mp4
 
             # Resize image to a width and height that are divisible by 2
             resized_image=$(mktemp).png
@@ -59,7 +59,7 @@ for selected_file in "${selected_files[@]}"; do
             fi
 
             # Get output video file path in the same directory as input audio file
-            output_video=$(dirname "$selected_file")/$(basename "$selected_file" | cut -f 1 -d '.').mp4
+            output_video=$(dirname "$selected_file")/$(basename "$selected_file" | cut -f 1 -d '_').$(date +%Y%m%d%H%M%S).mp4
 
             # Resize image to a width and height that are divisible by 2
             resized_image=$(mktemp).png
