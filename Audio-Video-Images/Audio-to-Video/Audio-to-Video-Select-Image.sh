@@ -9,46 +9,37 @@ if ! command -v ffmpeg &>/dev/null; then
     zenity --error --text="FFmpeg is not installed. Please install FFmpeg and try again."
     exit
 fi
-
 # Prompt user to select an image file
 image_file=$(zenity --file-selection --title="Select an Image File")
-
 # Check if image file was selected
 if [[ -z "$image_file" ]]; then
     zenity --error --text="No image file selected. Please try again."
     exit
 fi
-
 # Get selected file(s)
 IFS=$'\n'
-selected_files=($NAUTILUS_SCRIPT_SELECTED_FILE_PATHS)
-
+selected_files=($1)
 for selected_file in "${selected_files[@]}"; do
     # Check if selected_file is a directory
     if [[ -d "$selected_file" ]]; then
         # Get list of audio files in directory
         audio_files=$(find "$selected_file" -maxdepth 1 -type f -iname "*.mp3" -o -iname "*.wav" -o -iname "*.ogg")
-
         if [[ -z "$audio_files" ]]; then
             zenity --info --text="No audio files found in '${selected_file}'."
             exit
         fi
-
         for input_audio in $audio_files; do
             # Get output video file path in the same directory as input audio file
-            output_video=$(dirname "$input_audio")/$(basename "$input_audio" | cut -f 1 -d '_').$(date +%Y%m%d%H%M%S).mp4
-
+            output_video=$(dirname "$input_audio")/$(basename "$input_audio" | cut -f 1 -d '.' | cut -f 1 -d '_')_$(date +%Y%m%d%H%M%S).mp4
             # Resize image to a width and height that are divisible by 2
             resized_image=$(mktemp).png
-            ffmpeg -i "$image_file" -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" "$resized_image"
-
+            ffmpeg -i "$image_file" -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" "$resized_image" 2>&1 |
+                zenity --progress --auto-close --text="Resizing image..."
             # Convert audio file to video
-            ffmpeg -loop 1 -i "$resized_image" -i "$input_audio" -c:v libx264 -preset fast -tune stillimage -c:a copy -shortest -pix_fmt yuv420p "$output_video"
-
-            #zenity --info --text="Video conversion for '${input_audio}' completed successfully!"
+            ffmpeg -loop 1 -i "$resized_image" -i "$input_audio" -c:v libx264 -preset fast -tune stillimage -c:a copy -shortest -pix_fmt yuv420p "$output_video" 2>&1 |
+                zenity --progress --auto-close --text="Converting audio to video..."
         done
         zenity --info --text="Video conversion completed successfully!"
-
     else
         # Check if selected_file is an audio file
         if [[ "$selected_file" == *.mp3 || "$selected_file" == *.wav || "$selected_file" == *.ogg ]]; then
@@ -57,17 +48,15 @@ for selected_file in "${selected_files[@]}"; do
                 zenity --error --text="Input audio file '${selected_file}' does not exist. Please enter a valid file path and try again."
                 exit
             fi
-
             # Get output video file path in the same directory as input audio file
-            output_video=$(dirname "$selected_file")/$(basename "$selected_file" | cut -f 1 -d '_').$(date +%Y%m%d%H%M%S).mp4
-
+            output_video=$(dirname "$selected_file")/$(basename "$selected_file" | cut -f 1 -d '.' | cut -f 1 -d '_')_$(date +%Y%m%d%H%M%S).mp4
             # Resize image to a width and height that are divisible by 2
             resized_image=$(mktemp).png
-            ffmpeg -i "$image_file" -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" "$resized_image"
-
+            ffmpeg -i "$image_file" -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" "$resized_image" 2>&1 |
+                zenity --progress --auto-close --text="Resizing image..."
             # Convert audio file to video
-            ffmpeg -loop 1 -i "$resized_image" -i "$selected_file" -c:v libx264 -preset fast -tune stillimage -c:a copy -shortest -pix_fmt yuv420p "$output_video"
-
+            ffmpeg -loop 1 -i "$resized_image" -i "$selected_file" -c:v libx264 -preset fast -tune stillimage -c:a copy -shortest -pix_fmt yuv420p "$output_video" 2>&1 |
+                zenity --progress --auto-close --text="Converting audio to video..."
             zenity --info --text="Video conversion for '${selected_file}' completed successfully!"
         else
             # Selected file is not an audio file
