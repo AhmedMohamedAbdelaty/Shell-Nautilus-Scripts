@@ -11,8 +11,8 @@ selected_file="$1"
 
 # Check if selected file exists
 if [ ! -f "$selected_file" ]; then
-	zenity --error --text="File '$selected_file' does not exist'"
-	exit 1
+    zenity --error --text="File '$selected_file' does not exist"
+    exit 1
 fi
 
 # Prompt user for segment length in seconds
@@ -29,7 +29,17 @@ FILE_EXTENSION="${selected_file##*.}"
 # Set the output file prefix
 OUTPUT_PREFIX="${selected_file%.*}_part"
 
-# Use FFmpeg to split the selected file into segments
-ffmpeg -i "$selected_file" -c copy -map 0 -segment_time "$SEGMENT_LENGTH" -reset_timestamps 1 -f segment "${OUTPUT_PREFIX}%03d.${FILE_EXTENSION}"
+# Use FFmpeg to split the selected file into exact segments
+ffmpeg -i "$selected_file" \
+    -c:v libx264 -preset veryfast \
+    -c:a aac \
+    -map 0 \
+    -f segment \
+    -segment_time "$SEGMENT_LENGTH" \
+    -segment_time_delta 0.05 \
+    -force_key_frames "expr:gte(t,n_forced*$SEGMENT_LENGTH)" \
+    -reset_timestamps 1 \
+    -break_non_keyframes 1 \
+    "${OUTPUT_PREFIX}%03d.${FILE_EXTENSION}"
 
 zenity --info --text="File '$selected_file' has been split into ${SEGMENT_LENGTH}-second segments."
